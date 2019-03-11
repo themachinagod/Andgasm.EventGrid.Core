@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.0.1</Version>
+    <Authors>Andgasm Software Solutions</Authors>
+    <Description>The Andgasm EventGrid.Core library provides generalised support for EventGrid integration at a resource level</Description>
+    <Copyright>Andgasm Software Solutions</Copyright>
+    <RepositoryUrl>https://github.com/themachinagod/Andgasm.EventGrid.Core</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageTags>EventGrid, Bootstrap, AspNetCore</PackageTags>
+    <PackageReleaseNotes>Alpha release: now supports event grid hooks</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
