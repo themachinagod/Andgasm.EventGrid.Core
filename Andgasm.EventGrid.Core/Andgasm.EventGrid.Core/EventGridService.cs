@@ -16,6 +16,7 @@ namespace Andgasm.EventGrid.Core
 
         public EventGridService(EventGridSettings settings)
         {
+            Agent = "EventGridService";
             Endpoint = settings.Endpoint;
             Key = settings.Key;
         }

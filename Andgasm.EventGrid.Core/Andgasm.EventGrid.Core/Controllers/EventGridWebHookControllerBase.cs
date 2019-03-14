@@ -1,8 +1,6 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,10 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Andgasm.API.Core
+namespace Andgasm.EventGrid.Core
 {
-    public class EventGridControllerBase : ControllerBase
+    public class EventGridWebHookControllerBase : ControllerBase
     {
+        #region Fields
+        protected ILogger _logger { get; set; }
+        #endregion
+
+        #region Actions
         private bool EventTypeSubcriptionValidation
             => HttpContext.Request.Headers["aeg-event-type"].FirstOrDefault() ==
                "SubscriptionValidation";
@@ -21,18 +24,20 @@ namespace Andgasm.API.Core
         private bool EventTypeNotification
             => HttpContext.Request.Headers["aeg-event-type"].FirstOrDefault() ==
                "Notification";
+        #endregion
 
-        protected ILogger _logger { get; set; }
-
-        public EventGridControllerBase(ILogger<ReportableControllerBase> logger) : base()
+        #region Constructors
+        public EventGridWebHookControllerBase(ILogger<EventGridWebHookControllerBase> logger) : base()
         {
             _logger = logger;
         }
+        #endregion
 
+        #region Request Handling
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok("I am running!");
+            return Ok("Event grid web hook api service is currently running!");
         }
 
         [HttpPost]
@@ -68,5 +73,6 @@ namespace Andgasm.API.Core
                 validationResponse = validationCode
             });
         }
+        #endregion
     }
 }

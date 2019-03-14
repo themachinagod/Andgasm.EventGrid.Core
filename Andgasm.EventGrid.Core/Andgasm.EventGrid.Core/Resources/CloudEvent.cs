@@ -1,25 +1,7 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
 
-namespace Andgasm.API.Core
+namespace Andgasm.EventGrid.Core
 {
-    public class GridEvent<T> where T : class
-    {
-        public string Id { get; set; }
-        public string EventType { get; set; }
-        public string Subject { get; set; }
-        public DateTime EventTime { get; set; }
-        public T Data { get; set; }
-        public string Topic { get; set; }
-    }
-
     public class CloudEvent<T> where T : class
     {
         [JsonProperty("eventID")]
